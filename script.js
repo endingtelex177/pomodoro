@@ -12,8 +12,10 @@ let timer_display = document.getElementById("timer");
 
 // a button that that the input and display the timer from the user
 const timer_button = document.getElementById("button_timer")
+let running_timer;
 
 timer_button.onclick = ()=> {
+    clearInterval(running_timer);
     let user_value = document.getElementById("input_timer").value;
     // only take value more than 0 and less then 60
     if (user_value > 0 && user_value <= 60) {
@@ -23,12 +25,13 @@ timer_button.onclick = ()=> {
     // convert total user input from minutes into second instead. --todo
     let totalSec = user_value * 60;
 
-    let running_timer = setInterval(()=>{
+    running_timer = setInterval(()=>{
         let minutes = Math.floor(totalSec / 60);
         let seconds = totalSec % 60;
         timer_display.innerHTML = `${minutes.toString().padStart(2,0)}:${seconds.toString().padStart(2,0)}`
         totalSec--
         if (totalSec < 0){clearInterval(running_timer);}
+        console.log(running_timer); 
     },1000)
 
 }
