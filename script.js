@@ -10,12 +10,21 @@ let timer_display = document.getElementById("timer");
 //    t--
 // },1000)
 
-// taken a input from the input id 
+// a button that that the input and display the timer from the user
 const timer_button = document.getElementById("button_timer")
 
 timer_button.onclick = ()=> {
     let user_value = document.getElementById("input_timer").value;
+    // only take value more than 0 and less then 60
+    if (user_value > 0 && user_value <= 60) {
     timer_display.innerHTML = user_value;
+    
+    // saperate the minute into hours and minutes and seconds HH:MM:SS
+    // convert total user input from minutes into second instead.
+    let hours = Math.floor(user_value / 60); 
+    let minutes = user_value % 60;
+    let seconds = minutes % 60;
+    }
 }
 
 //~~~~~ using padStart to add '0' on the number. have to be converted into string first ~~~~~

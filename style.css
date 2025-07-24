@@ -1,7 +1,11 @@
-input.input:invalid {
-   background-color: red; 
+span.input_error {
+    display: none;
 }
 
-input.input {
-    background-color: blue;
+input.input_timer:invalid + span.input_error {
+   display: block;
+}
+
+input.input_timer:invalid {
+   outline: 2px solid red;
 }
