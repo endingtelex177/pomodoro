@@ -20,23 +20,21 @@ timer_button.onclick = ()=> {
     let user_value = document.getElementById("input_timer").value;
     // only take value more than 0 and less then 60
     if (user_value > 0 && user_value <= 60) {
-    timer_display.innerHTML = `${user_value}:00`;
-    
-    // saperate the minute into hours and minutes and seconds HH:MM:SS
-    // convert total user input from minutes into second instead. --todo
-    let totalSec = user_value * 60;
+        timer_display.innerHTML = `${user_value}:00`;
+        
+        // saperate the minute into hours and minutes and seconds HH:MM:SS
+        // convert total user input from minutes into second instead. --todo
+        let totalSec = user_value * 60;
 
-    running_timer = setInterval(()=>{
-        let minutes = Math.floor(totalSec / 60);
-        let seconds = totalSec % 60;
-        //title and display will run at the same time
-        title_timer.innerHTML = timer_display.innerHTML = `${minutes.toString().padStart(2,0)}:${seconds.toString().padStart(2,0)}`;
-        totalSec--
-        if (totalSec < 0){clearInterval(running_timer);}
-        console.log(running_timer); 
-    },1000)
+        running_timer = setInterval(()=>{
+            let minutes = Math.floor(totalSec / 60);
+            let seconds = totalSec % 60;
+            //title and display will run at the same time
+            title_timer.innerHTML = timer_display.innerHTML = `${minutes.toString().padStart(2,0)}:${seconds.toString().padStart(2,0)}`;
+            totalSec--
+            if (totalSec < 0){clearInterval(running_timer);}
+            console.log(running_timer); 
+        },1000)
 
 }
 }
-//~~~~~ using padStart to add '0' on the number. have to be converted into string first ~~~~~
-// console.log("3".padStart(2,0))
