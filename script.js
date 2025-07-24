@@ -21,12 +21,17 @@ timer_button.onclick = ()=> {
     
     // saperate the minute into hours and minutes and seconds HH:MM:SS
     // convert total user input from minutes into second instead. --todo
-    let hours = Math.floor(user_value / 60); 
-    let minutes = user_value % 60;
-    let seconds = minutes % 60;
-    }
-}
+    let totalSec = user_value * 60;
 
+    let running_timer = setInterval(()=>{
+        let minutes = Math.floor(totalSec / 60);
+        let seconds = totalSec % 60;
+        timer_display.innerHTML = `${minutes.toString().padStart(2,0)}:${seconds.toString().padStart(2,0)}`
+        totalSec--
+        if (totalSec < 0){clearInterval(running_timer);}
+    },1000)
+
+}
+}
 //~~~~~ using padStart to add '0' on the number. have to be converted into string first ~~~~~
 // console.log("3".padStart(2,0))
-
