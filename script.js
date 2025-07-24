@@ -2,6 +2,7 @@
 
 //the timer identity
 let timer_display = document.getElementById("timer");
+let title_timer = document.getElementById("live_title");
 
 //a function that let user input their own interval timer and the timer will start with a press of a button
 
@@ -19,7 +20,7 @@ timer_button.onclick = ()=> {
     let user_value = document.getElementById("input_timer").value;
     // only take value more than 0 and less then 60
     if (user_value > 0 && user_value <= 60) {
-    timer_display.innerHTML = user_value;
+    timer_display.innerHTML = `${user_value}:00`;
     
     // saperate the minute into hours and minutes and seconds HH:MM:SS
     // convert total user input from minutes into second instead. --todo
@@ -28,7 +29,8 @@ timer_button.onclick = ()=> {
     running_timer = setInterval(()=>{
         let minutes = Math.floor(totalSec / 60);
         let seconds = totalSec % 60;
-        timer_display.innerHTML = `${minutes.toString().padStart(2,0)}:${seconds.toString().padStart(2,0)}`
+        //title and display will run at the same time
+        title_timer.innerHTML = timer_display.innerHTML = `${minutes.toString().padStart(2,0)}:${seconds.toString().padStart(2,0)}`;
         totalSec--
         if (totalSec < 0){clearInterval(running_timer);}
         console.log(running_timer); 
