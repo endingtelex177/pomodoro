@@ -20,7 +20,7 @@ timer_button.onclick = ()=> {
     timer_display.innerHTML = user_value;
     
     // saperate the minute into hours and minutes and seconds HH:MM:SS
-    // convert total user input from minutes into second instead.
+    // convert total user input from minutes into second instead. --todo
     let hours = Math.floor(user_value / 60); 
     let minutes = user_value % 60;
     let seconds = minutes % 60;
