@@ -5,12 +5,6 @@ let timer_display = document.getElementById("timer");
 //
 // log identity 
 let log_display = document.getElementById("log_output");
-//a function that let user input their own interval timer and the timer will start with a press of a button
-
-// setInterval(() => {
-//    timer_display.innerHTML = t 
-//    t--
-// },1000)
 
 // a button that that the input and display the timer from the user
 const timer_button = document.getElementById("button_timer")
@@ -37,6 +31,7 @@ timer_button.onclick = ()=> {
     },1000)
 }
 }
+//adeed clickable button for looging in timer
 let i = 0;
 log_button.onclick = () => {
     let log_output = timer_display.innerHTML;
